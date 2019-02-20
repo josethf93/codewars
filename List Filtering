@@ -1,0 +1,58 @@
+In this kata you will create a function that takes a list of non-negative integers and strings and returns a new list with the strings filtered out.
+
+Example
+filter_list([1,2,'a','b']) == [1,2]
+filter_list([1,'a','b',0,15]) == [1,0,15]
+filter_list([1,2,'aasf','1','123',123]) == [1,2,123]
+
+Solution:
+
+My solution:
+def filter_list(l):
+    filter_int =[]
+    for x in l:
+        j = type(x)
+        if j == int:
+            filter_int.append(x)
+    l = filter_int
+    return l
+=============================================    
+Another way to solve this.
+def filter_list(l):
+    filter_str =[]
+    for x in l:
+        j = type(x)
+        if j == str:
+            filter_str.append(x)
+    l = list(set(l).difference(set(filter_str)))
+    return l
+=============================================
+Definition and Usage
+The isinstance() function returns True if the specified object is of the specified type, otherwise False.
+
+If the type parameter is a tuple, this function will return True if the object is one of the types in the tuple.
+
+Syntax
+isinstance(object, type)
+Parameter Values
+Parameter	Description
+object	Required. An object.
+type	A type or a class, or a tuple of types and/or classes
+
+def filter_list(l):
+  'return a new list with the strings filtered out'
+  return [i for i in l if not isinstance(i, str)]
+  
+def filter_list(l):
+  'return a new list with the strings filtered out'
+  return [e for e in l if isinstance(e, int)]
+=============================================
+
+def filter_list(l):
+  'return a new list with the strings filtered out'
+  return [x for x in l if type(x) is not str]
+
+def filter_list(l):
+  'return a new list with the strings filtered out'
+  return [e for e in l if type(e) is int]
+  =============================================
