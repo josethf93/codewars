@@ -21,5 +21,4 @@ def is_isogram(string):
         
     #Python Identity Operators
     #Identity operators are used to compare the objects, not if they are equal, but if they are actually the same object, with the same memory location:
-    print ("0" in c)
-        
+    return ("0" in c)     
