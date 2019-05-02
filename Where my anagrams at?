@@ -1,0 +1,48 @@
+What is an anagram? Well, two words are anagrams of each other if they both contain the same letters. For example:
+
+'abba' & 'baab' == true
+
+'abba' & 'bbaa' == true
+
+'abba' & 'abbba' == false
+
+'abba' & 'abca' == false
+Write a function that will find all the anagrams of a word from a list. You will be given two inputs a word and an array with words. You should return an array of all the anagrams or an empty array if there are none. For example:
+
+anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']) => ['aabb', 'bbaa']
+
+anagrams('racer', ['crazer', 'carer', 'racar', 'caers', 'racer']) => ['carer', 'racer']
+
+anagrams('laser', ['lazing', 'lazy',  'lacer']) => []
+#ALGORITHMS
+#STRINGS
+
+
+Solution:
+def anagrams(word, words):
+    i=''.join(sorted(word))      #Sorted the characers I needed to grep
+    anagrams=[]                    #Created a empty list   
+    for x in words:                #For all the items in list , i sorted them and check if they match with the string.
+        d = ''.join(sorted(x))
+        if i == d:
+            anagrams.append(x)       #If match then append to empty list   
+    return anagrams
+    
+ def anagrams(word, words):
+    i=word
+    anagrams=[]
+    for x in words:
+        if sorted(i) == sorted(x):
+            anagrams.append(x)
+    return anagrams
+
+OTHER Solution:
+def anagrams(word, words): return [item for item in words if sorted(item)==sorted(word)]
+
+def anagrams(word, words):
+    return [x for x in words if sorted(x) == sorted(word)]
+
+
+anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada'])
+anagrams('racer', ['crazer', 'carer', 'racar', 'caers', 'racer'])
+
